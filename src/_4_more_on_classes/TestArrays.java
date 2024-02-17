@@ -19,14 +19,14 @@ public class TestArrays {
             System.out.print(" " + arr[i]);
         }
 
-//        int j = 0;
-        // testing how to maintain iteration variable
+
+        // testing how to maintain iteration variable (likely impossible)
+        // int j = 0;
         for (int j = 0; j < 5; j++){
             System.out.print(j);
         }
+        // System.out.println(j);
 
-//        System.out.println(j);
 
-        //
     }
 }
