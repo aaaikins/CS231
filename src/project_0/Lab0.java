@@ -1,5 +1,11 @@
 package project_0;
 /*
+file name: Lab0.java
+Author: Francis O'Hara
+Date: 2/13/2024
+How to run: java -ea Lab0
+ */
+/*
  * This is a multi-line comment that begins with a forward slash and an asterisk and ends with an asterisk and a forward slash.
  *
  * The content of this comment is equivalent to the Module Strings that you wrote in Python.
@@ -17,9 +23,6 @@ package project_0;
  * If you are unable to find the error, then ask for help from the instructor or a TA.
  *
  * Note: Be sure not to modify any of the program's existing code.
- *
- * Date: 2024-02-13
- * Author: Francis O'Hara
  *
  */
 

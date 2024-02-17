@@ -1,10 +1,10 @@
 package project_0;
 /*
- * Project 0: Java Jump Start
- * Description: A class for representing the rectangle shape with helpful methods for computing various things such as the length of the diagonal of the rectangle.
- * Author: Francis O'Hara
- * Date: 2024-02-13
- */
+file name: Tester.java
+Author: Francis O'Hara
+Date: 2/16/2024
+How to run: java -ea Tester
+*/
 
 //Write a file header with your name and class purpose
 //See Lab0.java for an example of the format we want
