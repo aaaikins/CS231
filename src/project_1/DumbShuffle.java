@@ -1,4 +1,4 @@
-//package project_1;
+package project_1;
 /*
 file name:      DumbShuffle.java
 Authors:        Francis O'Hara
