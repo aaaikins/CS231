@@ -1,4 +1,4 @@
-package project_1;
+package project_1.lab1;
 
 /*
 Filename: Shuffle.java
