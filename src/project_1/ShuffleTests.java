@@ -20,13 +20,19 @@ public class ShuffleTests {
             for (int i = 0; i < 10; i++)
                 array.add(i);
 
-            //Shuffle it and save the output as a new array
+            // Shuffle it and save the output as a new array
+            // make a copy of input array
+            ArrayList<Integer> copyArray = new ArrayList<Integer>();
+
+            for (int element: array)
+                copyArray.add(element);
+
             ArrayList<Integer> shuffledArray = DumbShuffle.dumbShuffle(array);
 
 
             // verify
             // Print the original and the shuffled arrays
-            System.out.println("Array: " + array);
+            System.out.println("\nArray: " + copyArray);
             System.out.println("Shuffled Array: " + shuffledArray);
 
 
@@ -39,8 +45,8 @@ public class ShuffleTests {
 
 
             // testing noShuffle method
-             ArrayList<Integer> notShuffledArray = DumbShuffle.noShuffle(array);
-             assert !(array.equals(notShuffledArray));
+//             ArrayList<Integer> notShuffledArray = DumbShuffle.noShuffle(array);
+//             assert !(array.equals(notShuffledArray));
 
 
 

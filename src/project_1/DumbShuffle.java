@@ -24,6 +24,20 @@ public class DumbShuffle {
             newIntegerArray.add( integerArray.get( i ) );
         }
 
+        for (int i = 0; i < 10; i ++){
+            // select a valid random index for removing elements
+            int removedElement;
+            Random random = new Random();
+            int randomIndex = random.nextInt(integerArray.size());
+
+            // print out element to be removed at randomIndex
+            removedElement = integerArray.get(randomIndex);
+            System.out.print(removedElement + " ");
+
+            // remove element at randomIndex
+            integerArray.remove(randomIndex);
+        }
+
         return newIntegerArray ;
     }
 
