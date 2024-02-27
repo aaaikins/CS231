@@ -9,7 +9,7 @@ public class Test {
 
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         Boss b = new Boss("Sally", "Smith", 80000);
 
@@ -19,7 +19,7 @@ public class Test {
         System.out.println(b);
         System.out.println(h);
 
-        Employee emps[] = new Employee[2];
+        Employee[] emps = new Employee[2];
 
         emps[0] = b;
         emps[1] = h;
@@ -39,7 +39,7 @@ public class Test {
 
 
 
-        Object emps2[] = new Object[2];
+        Object[] emps2 = new Object[2];
 
         emps2[0] = b;
         emps2[1] = h;
