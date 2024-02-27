@@ -1,3 +1,5 @@
+package _8_inheritance;
+
 public class Name {
 	private String first; // First name
 	private String last; // Last name

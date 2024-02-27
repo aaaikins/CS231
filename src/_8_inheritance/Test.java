@@ -1,3 +1,4 @@
+package _8_inheritance;
 
 public class Test {
 

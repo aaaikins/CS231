@@ -1,4 +1,4 @@
-
+package _8_inheritance;
 public final class Boss extends Employee {
 
 	double salary;

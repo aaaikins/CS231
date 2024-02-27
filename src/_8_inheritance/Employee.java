@@ -1,3 +1,4 @@
+package _8_inheritance;
 
 public abstract class Employee extends Object {
 

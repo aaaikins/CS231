@@ -1,3 +1,4 @@
+package _8_inheritance;
 
 public final class HourlyWorker extends Employee {
 
