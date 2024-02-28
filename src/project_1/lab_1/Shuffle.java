@@ -1,20 +1,24 @@
-package project_1.lab1;
-
 /*
-Filename: Shuffle.java
-Author: Francis O'Hara
-Date: 02/20/2024
-How to run: java -ea Shuffle
+Filename:    Shuffle.java
+Author:      Francis O'Hara
+Date:        02/20/2024
+Description: Code to demonstrate the nuances of comparing ArrayLists.
+             Preparation for implementing a method for shuffling values in an ArrayList.
+How to run:  java -ea Shuffle
 */
+package project_1.lab_1;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Shuffle {
-
-    public static void main(String[] args){
-        // create an array of random numbers between 0 and 99
-        ArrayList<Integer> arr0 = new ArrayList<Integer>();
+    /**
+     * The main entry point into the program.
+     * @param args Array of Strings representing the command-line arguments passed when calling the program.
+     */
+    public static void main(String[] args) {
+        // create an array of random numbers between 0 and 99: arr0
+        ArrayList<Integer> arr0 = new ArrayList<>();
         Random random = new Random();
 
         for (int i = 0;  i < 10; i ++){
@@ -46,12 +50,10 @@ public class Shuffle {
         System.out.println("arr1 == arr2: " + (arr1 == arr2));
         System.out.println("arr0 == arr2: " + (arr0 == arr2));
 
-
         // compare with .equals method
         System.out.println("arr0.equals(arr1):" + arr0.equals(arr1));
         System.out.println("arr1.equals(arr2):" + arr1.equals(arr2));
         System.out.println("arr0.equals(arr2):" + arr0.equals(arr2));
-
     }
 
 }
