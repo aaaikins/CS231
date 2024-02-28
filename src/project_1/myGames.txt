@@ -1,0 +1,26 @@
+--INITIAL HANDS--
+Player Hand --> [6] : 6
+Dealer Hand --> [10] : 10
+--FINAL HANDS--
+Player Hand --> [6, 5, 9] : 20
+Dealer Hand --> [10, 8] : 18
+--GAME RESULTS--
+Player has won!
+
+--INITIAL HANDS--
+Player Hand --> [7] : 7
+Dealer Hand --> [6] : 6
+--FINAL HANDS--
+Player Hand --> [7, 9] : 16
+Dealer Hand --> [6, 9, 10] : 25
+--GAME RESULTS--
+Player has won!
+
+--INITIAL HANDS--
+Player Hand --> [4] : 4
+Dealer Hand --> [9] : 9
+--FINAL HANDS--
+Player Hand --> [4, 4, 5, 10] : 23
+Dealer Hand --> [9, 2, 9] : 20
+--GAME RESULTS--
+Dealer has won!
