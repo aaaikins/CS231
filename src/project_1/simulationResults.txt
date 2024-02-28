@@ -1,0 +1,9 @@
+--SIMULATION RESULTS--
+Total Number of Games: 1000
+Number of Games Dealer Won: 489
+Percentage of Games Dealer Won: 48.90
+Number of Games Player Won: 423
+Percentage of Games Player Won: 42.30
+Number of Games that Tied: 88
+Percentage of Games that Tied: 8.80
+Process finished with exit code 0
