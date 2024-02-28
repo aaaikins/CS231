@@ -1,8 +1,8 @@
 /*
-* Author: Francis O'Hara
-* Date: 2/25/2024
+* Author:      Francis O'Hara
+* Date:        2/25/2024
 * Description: Simulates 1000 games of Blackjack using the Blackjack class and outputs the results.
-* How to Run: java Simulation
+* How to Run:  java Simulation
 */
 package project_1;
 

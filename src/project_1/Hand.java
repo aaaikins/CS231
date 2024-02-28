@@ -1,9 +1,9 @@
 /*
-File Name: Hand.java
-Author: Francis O'Hara
-Date: 2/27/2024
+File Name:   Hand.java
+Author:      Francis O'Hara
+Date:        2/27/2024
 Description: A class for representing a player or dealer's hand of cards in a game of Blackjack.
-How to Run: N/A
+How to Run:  N/A
 */
 package project_1;
 

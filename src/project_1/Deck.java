@@ -1,9 +1,9 @@
 /*
-File Name: Deck.java
-Author: Francis O'Hara
-Date: 2/27/2024
+File Name:   Deck.java
+Author:      Francis O'Hara
+Date:        2/27/2024
 Description: A class for representing the deck in a game of Blackjack.
-How to Run: N/A
+How to Run:  N/A
 */
 package project_1;
 
