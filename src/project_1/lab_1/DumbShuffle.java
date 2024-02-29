@@ -2,7 +2,7 @@
 File Name:   DumbShuffle.java
 Authors:     Francis O'Hara
 Date:        02/20/2024
-Description: Improper implementation of a shuffling algorithm.
+Description: Contains multiple implementations of shuffling algorithms.
 How to Run:  java -ea DumbShuffle
 */
 package project_1.lab_1;
@@ -35,11 +35,38 @@ public class DumbShuffle {
         ArrayList<Integer> newIntegerArray = new ArrayList<>() ;
 
         // Add the last to the new list and remove it until the end
-        for ( int i = 0 ; i < integerArray.size() ; i ++ ) {
-            newIntegerArray.add( integerArray.get( i ) );
+        for (Integer integer : integerArray) {
+            newIntegerArray.add(integer);
         }
 
         return newIntegerArray ;
+    }
+
+    /**
+     * Shuffles an ArrayList. Based on the Fisher-Yates shuffling algorithm.
+     * @param integerArray The ArrayList of integers to be shuffled.
+     * @return The shuffled ArrayList.
+     */
+    public static ArrayList<Integer> smartShuffle (ArrayList<Integer> integerArray) {
+        ArrayList<Integer> oldArray = new ArrayList<>();
+        ArrayList<Integer> newArray = new ArrayList<>();
+
+        // copy contents of integerArray to prevent deletion
+        for (int value: integerArray)
+            oldArray.add(value);
+
+        // remove random values from oldArray and append to newArray
+        Random random = new Random();
+
+        for (int i = 0; i < integerArray.size(); i++) {
+            // add randomly selected value from oldArray to newArray
+            int randomIndex = random.nextInt(oldArray.size());
+            newArray.add(oldArray.get(randomIndex));
+
+            // remove selected value from oldArray
+            oldArray.remove(randomIndex);
+        }
+        return newArray;
     }
 
     /**
