@@ -59,7 +59,6 @@ public class Cell {
      * @param neighbors An ArrayList of Cells
      */
 
-    //todo: update this method below with proper rules.
     public void updateState(ArrayList<Cell> neighbors) {
         // count number of live neighbors
         int numberOfLiveNeighbors = 0;
