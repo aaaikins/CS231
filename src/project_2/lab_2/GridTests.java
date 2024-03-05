@@ -1,3 +1,10 @@
+/*
+File Name:   GridTests.java
+Author:      Francis O'Hara
+Date:        2/27/2024
+Description: Contains tests for the Grid class.
+How to Run: java -ea GridTests
+*/
 package project_2.lab_2;
 
 public class GridTests {

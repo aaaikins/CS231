@@ -1,12 +1,15 @@
+/*
+File Name:   Grid.java
+Author:      Francis O'Hara
+Date:        2/27/2024
+Description: Command-line program for creating a 2D grid of random 1-digit integers and displaying a version of the grid rotated clockwise by 90 degrees.
+How to Run:  java Grid i j (where `i` is the number of rows and `j` is the number of columns of the grid to be created and rotated)
+*/
 package project_2.lab_2;
-/* Author: Francis O'Hara
- * Date: 2/27/2024
- * Description: Command-line program for creating a 2D grid of random 1-digit integers and displaying a version of the grid rotated clockwise by 90 degrees.
- * How to Run: java Grid i j (where `i` is the number of rows and `j` is the number of columns of the grid to be created and rotated)
- */
-import java.util.Random;
-public class Grid {
 
+import java.util.Random;
+
+public class Grid {
     /**
      * Checks if two grids of integers `arr1` and `arr2` contain the same elements.
      * @param arr1 The first array to be compared.
@@ -68,9 +71,9 @@ public class Grid {
 
     /**
      * Entry point for the program.
+     * @param args An array of Strings denoting the command-line arguments passed to the program.
      */
     public static void main(String[] args){
-
 /*        if (args.length < 1){
             String usageStatement = "Usage: java Grid [args...]\n\t\t(to print the list of arguments on a new line before program starts)";
             System.out.println(usageStatement);
