@@ -58,6 +58,8 @@ public class Cell {
      * 
      * @param neighbors An ArrayList of Cells
      */
+
+    //todo: update this method below with proper rules.
     public void updateState(ArrayList<Cell> neighbors) {
         // count number of live neighbors
         int numberOfLiveNeighbors = 0;
@@ -69,10 +71,10 @@ public class Cell {
 
         // update cell status based on no. of live neighbors
         if (alive) {
-            if (numberOfLiveNeighbors < 2)
+            if (numberOfLiveNeighbors < 2 || numberOfLiveNeighbors > 3)
                 alive = false;
         }
-        else if (numberOfLiveNeighbors > 2)
+        else if (numberOfLiveNeighbors == 3)
                 alive = true;
     }
 
