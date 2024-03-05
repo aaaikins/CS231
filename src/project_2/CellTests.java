@@ -77,61 +77,80 @@ public class CellTests {
             Cell deadCell = new Cell();
             Cell liveCell = new Cell(true);
 
-            // initialize 1 live neighbor 3 dead neighbors
-            ArrayList<Cell> neighbors0 = new ArrayList<>();
-            neighbors0.add(new Cell(true));
-            neighbors0.add(new Cell());
-            neighbors0.add(new Cell());
-            neighbors0.add(new Cell());
-
-            // initialize 2 live neighbors 2 dead neighbors
+            // initialize 1 live neighbor 7 dead neighbors
             ArrayList<Cell> neighbors1 = new ArrayList<>();
             neighbors1.add(new Cell(true));
-            neighbors1.add(new Cell(true));
-            neighbors1.add(new Cell());
-            neighbors1.add(new Cell());
+            for (int i = 0; i < 7; i++)
+                neighbors1.add(new Cell());
 
-            // initialize 3 live neighbors 1 dead neighbor
+
+            // initialize 2 live neighbors 6 dead neighbors
             ArrayList<Cell> neighbors2 = new ArrayList<>();
-            neighbors2.add(new Cell(true));
-            neighbors2.add(new Cell(true));
-            neighbors2.add(new Cell(true));
-            neighbors2.add(new Cell());
+            for(int i = 0; i < 2; i ++)
+                neighbors2.add(new Cell(true));
+            for (int i = 0; i < 6; i ++)
+                neighbors2.add(new Cell());
+
+
+            // initialize 3 live neighbors 5 dead neighbors
+            ArrayList<Cell> neighbors3 = new ArrayList<>();
+            for(int i = 0; i < 3; i ++)
+                neighbors3.add(new Cell(true));
+            for (int i = 0; i < 5; i ++)
+                neighbors3.add(new Cell());
+
+            // initialize 4 live neighbors 4 dead neighbors
+            ArrayList<Cell> neighbors4 = new ArrayList<>();
+            for (int i = 0; i < 4; i ++) {
+                neighbors4.add(new Cell(true));
+                neighbors4.add(new Cell());
+            }
 
             // verify
             System.out.println("DeadCell State Before: " + deadCell);
             System.out.println("liveCell State Before: " + liveCell);
-            System.out.println("neighbors0: " + neighbors0);
             System.out.println("neighbors1: " + neighbors1);
             System.out.println("neighbors2: " + neighbors2);
+            System.out.println("neighbors3: " + neighbors3);
+            System.out.println("neighbors4: " + neighbors4);
 
             // test
             // testing update conditions for live cell
-            liveCell.updateState(neighbors0);
-            assert !liveCell.getAlive(): "Error in Cell::updateState(ArrayList<Cells> neighbors)";
-            liveCell.setAlive(true);
-
             liveCell.updateState(neighbors1);
-            assert liveCell.getAlive(): "Error in Cell::updateState(ArrayList<Cells> neighbors)";
+            assert !liveCell.getAlive(): "Error in Cell::updateState(ArrayList<Cell> neighbors)";
             liveCell.setAlive(true);
 
             liveCell.updateState(neighbors2);
-            assert liveCell.getAlive(): "Error in Cell::updateState(ArrayList<Cells> neighbors)";
+            assert liveCell.getAlive(): "Error in Cell::updateState(ArrayList<Cell> neighbors)";
+            liveCell.setAlive(true);
+
+            liveCell.updateState(neighbors3);
+            assert liveCell.getAlive(): "Error in Cell::updateState(ArrayList<Cell> neighbors)";
+            liveCell.setAlive(true);
+
+            liveCell.updateState(neighbors4);
+            assert !liveCell.getAlive(): "Error in Cell::updateState(ArrayList<Cell> neighbors)";
             liveCell.setAlive(true);
 
             // testing update conditions for dead cell
-            deadCell.updateState(neighbors0);
-            assert !deadCell.getAlive() : "Error in Cell::updateState(ArrayList<Cells> neighbors)";
-            deadCell.setAlive(false);
-
             deadCell.updateState(neighbors1);
-            assert !deadCell.getAlive() : "Error in Cell::updateState(ArrayList<Cells> neighbors)";
+            assert !deadCell.getAlive() : "Error in Cell::updateState(ArrayList<Cell> neighbors)";
             deadCell.setAlive(false);
 
             deadCell.updateState(neighbors2);
-            assert deadCell.getAlive() : "Error in Cell::updateState(ArrayList<Cells> neighbors)";
+            assert !deadCell.getAlive() : "Error in Cell::updateState(ArrayList<Cell> neighbors)";
+            deadCell.setAlive(false);
+
+            deadCell.updateState(neighbors3);
+            assert deadCell.getAlive() : "Error in Cell::updateState(ArrayList<Cell> neighbors)";
+            deadCell.setAlive(false);
+
+            deadCell.updateState(neighbors4);
+            assert !deadCell.getAlive() : "Error in Cell::updateState(ArrayList<Cell> neighbors)";
             deadCell.setAlive(false);
         }
+
+        System.out.println("\n\n*** Done testing Cell! *** \n");
     }
 
     /**
