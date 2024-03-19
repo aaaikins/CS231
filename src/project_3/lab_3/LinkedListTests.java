@@ -13,7 +13,7 @@ public class LinkedListTests {
         // case 1: testing LinkedList()
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
 
             // verify
             System.out.println(ll + " != null");
@@ -25,7 +25,7 @@ public class LinkedListTests {
         // case 2: testing add(T item)
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
             for (int i = 0; i < 5; i++) {
                 ll.add(i);
             }
@@ -40,7 +40,7 @@ public class LinkedListTests {
         // case 3: testing add(int index, T item)
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
             ll.add(0, 1);
             ll.add(1, 2);
             ll.add(1, 3);
@@ -58,7 +58,7 @@ public class LinkedListTests {
         // case 4: testing clear()
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
             for (int i : new int[] { 1, 2, 3 }) {
                 ll.add(i);
             }
@@ -74,7 +74,7 @@ public class LinkedListTests {
         // case 5: testing contains()
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
             for (int i = 0; i < 3; i++) {
                 ll.add(2 * i);
             }
@@ -93,10 +93,10 @@ public class LinkedListTests {
         // case 6: testing equals()
         {
             // setup
-            LinkedList<Integer> list1 = new LinkedList<Integer>();
-            LinkedList<Integer> list2 = new LinkedList<Integer>();
-            LinkedList<Integer> list3 = new LinkedList<Integer>();
-            LinkedList<Integer> list4 = new LinkedList<Integer>();
+            LinkedList<Integer> list1 = new LinkedList<>();
+            LinkedList<Integer> list2 = new LinkedList<>();
+            LinkedList<Integer> list3 = new LinkedList<>();
+            LinkedList<Integer> list4 = new LinkedList<>();
             for (int i = 0; i < 3; i++) {
                 list1.add(i);
                 list2.add(i);
@@ -122,7 +122,7 @@ public class LinkedListTests {
         // case 7: testing get()
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
             for (int i = 0; i < 5; i++) {
                 ll.add(4-i);
             }
@@ -141,8 +141,8 @@ public class LinkedListTests {
         // case 8: testing isEmpty()
         {
             // setup
-            LinkedList<Integer> list1 = new LinkedList<Integer>();
-            LinkedList<Integer> list2 = new LinkedList<Integer>();
+            LinkedList<Integer> list1 = new LinkedList<>();
+            LinkedList<Integer> list2 = new LinkedList<>();
             list2.add(5);
 
             // verify
@@ -157,7 +157,7 @@ public class LinkedListTests {
         // case 9: testing remove()
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
             for (int i = 0; i < 5; i++) {
                 ll.add(4-i);
             }
@@ -177,7 +177,7 @@ public class LinkedListTests {
         // case 10: testing remove(int index)
         {
             // setup
-            LinkedList<Integer> ll = new LinkedList<Integer>();
+            LinkedList<Integer> ll = new LinkedList<>();
             for (int i = 0; i < 8; i++) {
                 ll.add(7-i);
             }
