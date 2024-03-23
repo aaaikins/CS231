@@ -440,6 +440,6 @@ public class LinkedList<T> implements Queue<T>, Iterable<T> {
      * @return the head of this queue, or `null` if this queue is empty
      */
     public T peek() {
-        return getLast();
+        return get(0);
     }
 }
