@@ -40,7 +40,11 @@ public abstract class JobDispatcher {
      * @param showViz A boolean indicating whether the created servers' visualization should be shown.
      */
     public JobDispatcher(int k, boolean showViz) {
-        servers = new ArrayList<>(k);
+        servers = new ArrayList<>();
+
+        for (int i = 0; i < k; i ++)
+            servers.add(new Server());
+
         time = 0.0;
         numJobsHandled = 0;
         serverFarmViz = new ServerFarmViz(this, showViz);
