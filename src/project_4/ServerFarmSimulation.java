@@ -1,7 +1,7 @@
 /*
 file name:      ServerFarmSimulation.java
-Authors:        Ike Lage
-last modified:  03/07/2024
+Authors:        Ike Lage, Modified by Francis O'Hara.
+last modified:  03/25/2024
 */
 package project_4;
 
@@ -34,16 +34,16 @@ public class ServerFarmSimulation {
 
         //Create a dispatcher of the appropriate type
         JobDispatcher dispatcher = null ;
-        if ( dispatcherType == "random" ){
-            dispatcher = new RandomDispatcher( numServers , showViz ) ; 
-        } else if ( dispatcherType == "round" ) { 
-            dispatcher = new RoundRobinDispatcher( numServers , showViz ) ; 
-        } else if ( dispatcherType == "shortest" ) {
-            dispatcher = new ShortestQueueDispatcher( numServers , showViz ) ; 
-        } else if ( dispatcherType == "least" ) {
-            dispatcher = new LeastWorkDispatcher( numServers , showViz ) ; 
+        if ( dispatcherType.equals("random") ){
+            dispatcher = new RandomDispatcher( numServers , showViz ) ;
+        } else if ( dispatcherType.equals("round") ) {
+            dispatcher = new RoundRobinDispatcher( numServers , showViz ) ;
+        }  else if ( dispatcherType.equals("shortest") ) {
+            dispatcher = new ShortestQueueDispatcher( numServers , showViz ) ;
+        } else if ( dispatcherType.equals("least") ) {
+            dispatcher = new LeastWorkDispatcher( numServers , showViz ) ;
         }
-        
+
         //Have the dispatched handle the specified number of jobs
         for ( int i = 0 ; i < numJobs ; i ++ ) {
             dispatcher.handleJob( jobMaker.getNextJob() ) ;
