@@ -138,4 +138,13 @@ public class Server {
         else g.setColor(Color.RED.darker());
         g.fillOval(2 * (int) sep, (int) loc, (int) sep, (int) sep);
     }
+
+    /**
+     * Returns the amount of processing time required to complete all jobs currently in the server's queue.
+     *
+     * @return The amount of processing time required to complete all jobs in the server's queue.
+     */
+    public double getRemainingTime() {
+        return remainingTime;
+    }
 }
