@@ -12,7 +12,7 @@ public class RoundRobinDispatcher extends JobDispatcher {
     /**
      * The number of jobs dispatched so far.
      */
-    int numberOfDispatches = 0;
+    int numberOfDispatches;
 
     /**
      * Creates a `RoundRobinDispatcher` object.
@@ -21,6 +21,7 @@ public class RoundRobinDispatcher extends JobDispatcher {
      */
     public RoundRobinDispatcher(int k, boolean showViz) {
         super(k, showViz);
+        numberOfDispatches = 0;
     }
 
     /**
