@@ -21,12 +21,11 @@ public class ServerFarmSimulation {
         boolean showViz = true ; //Set to true to see the visualization, and false to run your experiments
 
         //Main experiment settings
-        /**
+        /*
         int numServers = 34 ; //Numbers of servers in the farm
         int numJobs = 10000000 ; //Number of jobs to process
         boolean showViz = false ; //Set to true to see the visualization, and false to run your experiments
         */
-
         String dispatcherType = "random" ; //Which jobDispatcher to use
 
         //Initialize the job maker with the mean arrival and processing time
@@ -48,7 +47,7 @@ public class ServerFarmSimulation {
         for ( int i = 0 ; i < numJobs ; i ++ ) {
             dispatcher.handleJob( jobMaker.getNextJob() ) ;
         }
-        dispatcher.finishUp() ; //Finish all of the remaining jobs in Server queues
+        dispatcher.finishUp() ; //Finish all the remaining jobs in Server queues
         
         
         //Print out the mean processing time
