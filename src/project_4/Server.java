@@ -18,32 +18,32 @@ public class Server {
     /**
      * Queue of jobs to be processed by the server.
      */
-    LinkedList<Job> queue;
+    private LinkedList<Job> queue;
 
     /**
      * The current system time on the server.
      */
-    double time;
+    private double time;
 
     /**
      * The total time jobs spent between arriving at the server and being completed.
      */
-    double totalWaitingTime;
+    private double totalWaitingTime;
 
     /**
      * The remaining amount of processing time required to complete all jobs currently in the queue.
      */
-    double remainingTime;
+    private double remainingTime;
 
     /**
      * The number of jobs processed so far by the server.
      */
-    int numJobs;
+    private int numJobs;
 
     /**
      * The number of jobs currently in the server's queue.
      */
-    int size;
+    private int size;
 
     /**
      * Creates a new Server object.
