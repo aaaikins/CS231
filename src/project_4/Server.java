@@ -147,4 +147,12 @@ public class Server {
     public double getRemainingTime() {
         return remainingTime;
     }
+
+    /**
+     * Returns the total time jobs spent between arriving at the server and being completed (waiting time).
+     * @return A double denoting the current waiting time for the server.
+     */
+    public double getTotalWaitingTime() {
+        return totalWaitingTime;
+    }
 }
