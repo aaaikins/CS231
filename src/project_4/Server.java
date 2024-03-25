@@ -80,7 +80,7 @@ public class Server {
         // process the job(s)
         double timeLeft = time - this.time;
 
-        while (timeLeft > 0) {
+        while (timeLeft > 0 && size > 0) {
             Job currentJob = queue.peek();
             double timeToProcessFor = Math.min(timeLeft, currentJob.getProcessingTimeRemaining());
             currentJob.process(timeToProcessFor, this.time);
