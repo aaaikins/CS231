@@ -71,16 +71,17 @@ public class Server {
 
     /**
      * Processes jobs currently in the queue up to the time specified by `time` and updates the server's system time accordingly.
+     * As part of my project extension, I added a condition under which processing should stop which is when
+     * the number of jobs left in the queue is not greater than 0.
+     *
      *
      * @param time The time at which the jobs currently in the queue should be processed till.
      */
     public void processTo(double time) {
-        // todo: throw exception if `time` is less than current system time.
-
         // process the job(s)
         double timeLeft = time - this.time;
 
-        while (timeLeft > 0 && size > 0) {
+        while (timeLeft > 0 && size > 0) { // extension: check that the queue is not empty.
             Job currentJob = queue.peek();
             double timeToProcessFor = Math.min(timeLeft, currentJob.getProcessingTimeRemaining());
             currentJob.process(timeToProcessFor, this.time);
