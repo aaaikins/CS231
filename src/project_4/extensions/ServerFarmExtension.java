@@ -5,7 +5,7 @@ Date:        3/25/2024
 Description: Simulation to test performance of LeastWorkDispatcher as number of servers increases.
 How to Run:  java ServerFarmExtension
 */
-package project_4.extension;
+package project_4.extensions;
 
 import project_4.JobMaker;
 import project_4.LeastWorkDispatcher;
