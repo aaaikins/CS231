@@ -5,7 +5,9 @@ Date:        3/24/2024
 Description: Contains tests for the `peek` method of the `LinkedList` Queue class.
 How to Run:  java -ea PeekTest
 */
-package project_4.lab_4;
+package project_4.extension;
+
+import project_4.lab_4.LinkedList;
 
 public class PeekTest {
     public static void main (String[] args){
