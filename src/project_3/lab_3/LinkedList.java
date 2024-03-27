@@ -7,7 +7,9 @@ How to Run:  N/A
 */
 package project_3.lab_3;
 
-public class LinkedList<T> {
+import java.util.Iterator;
+
+public class LinkedList<T> implements Iterable<T> {
     /**
      * An implementation of the Node in a LinkedList data structure.
      *
@@ -85,6 +87,60 @@ public class LinkedList<T> {
      */
     public int size() {
         return size;
+    }
+
+    /**
+     * An iterator for traversing the LinkedList.
+     */
+    private class LinkedListIterator implements Iterator<T> {
+        /**
+         * Contains the next node to be provided during traversal of the LinkedList.
+         */
+        Node<T> nextNode;
+
+        /**
+         * Creates a LinkedListIterator object.
+         *
+         * @param head The head of the list.
+         */
+        public LinkedListIterator(Node<T> head) {
+            nextNode = head;
+        }
+
+        /**
+         * Returns a boolean indicating whether there are still values to be traversed in the LinkedList.
+         *
+         * @return `true` if there are still values to be traversed in the linked list. Otherwise, returns `false`.
+         */
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+
+        /**
+         * Returns the next item in the list during traversal, and advances traversal to the next node in the list.
+         *
+         * @return The next item in the traversal of the linked list.
+         */
+        public T next() {
+            T result = nextNode.value;
+            nextNode = nextNode.next;
+            return result;
+        }
+
+        /**
+         * Optional method for the Iterator interface
+         */
+        public void remove() {
+        }
+    }
+
+    /**
+     * Returns a new LinkedListIterator whose head points to the constructor.
+     *
+     * @return a LinkedListIterator object whose nextNode value points to the head of the LinkedList.
+     */
+    public Iterator<T> iterator() {
+        return new LinkedListIterator(head);
     }
 
     /**
@@ -278,7 +334,7 @@ public class LinkedList<T> {
      * @param o The LinkedList to be compared with the current LinkedList.
      * @return `true` if the lists are equal. Otherwise, returns `false`.
      */
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o instanceof LinkedList)
             return toString().equals(o.toString());
         else
