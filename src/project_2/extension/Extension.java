@@ -12,13 +12,6 @@ import project_2.LandscapeDisplay;
 
 public class Extension {
     /**
-     *
-     */
-    public static void lifeSimulation() {
-
-    }
-
-    /**
      * The main entry point into the program.
      * Runs a simulation of Conway's Game of Life with conditions based on command-line arguments.
      *
