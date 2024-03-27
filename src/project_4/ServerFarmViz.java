@@ -37,8 +37,8 @@ public class ServerFarmViz {
     /**
      * Initializes a display window for a Landscape.
      * 
-     * @param scape the Landscape to display
-     * @param scale controls the relative size of the display
+     * @param dispatcher the Landscape to display
+     * @param showViz controls the relative size of the display
      */
     public ServerFarmViz(JobDispatcher dispatcher , boolean showViz ) {
         this.showViz = showViz;
