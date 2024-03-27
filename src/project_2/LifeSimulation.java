@@ -9,25 +9,19 @@ package project_2;
 
 public class LifeSimulation {
     /**
-     *
-     */
-    public static void lifeSimulation(){
-
-    }
-
-    /**
      * The main entry point into the program.
      * Runs a simulation of Conway's Game of Life with conditions based on command-line arguments.
+     *
      * @param args An array of Strings denoting command-line arguments passed to the program.
      */
-    public static void main(String[] args)  throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         // default game parameters
         int gridSize = 100;
         int totalSteps = -1;
         double chance = 0.25;
 
         // set game parameters based on command-line arguments if any
-        switch (args.length){
+        switch (args.length) {
             case 1:
                 gridSize = Integer.parseInt(args[0]);
                 break;
@@ -61,9 +55,9 @@ public class LifeSimulation {
             display.repaint();  // display updated landscape
 
             // save an image of the updated landscape
-            display.saveImage( "/Users/francisohara/Library/CloudStorage/GoogleDrive-franciskohara@gmail.com/My Drive/LEARN/Spring 2024/CS231/CS231/src/project_2/data/life_frame_" + String.format( "%03d", step ) + ".png" );
+            display.saveImage("/Users/francisohara/Library/CloudStorage/GoogleDrive-franciskohara@gmail.com/My Drive/LEARN/Spring 2024/CS231/CS231/src/project_2/data/life_frame_" + String.format("%03d", step) + ".png");
 
-            step ++;  // increment counter for no. of steps
+            step++;  // increment counter for no. of steps
             if (totalSteps != -1)
                 if (step > totalSteps)
                     break;
