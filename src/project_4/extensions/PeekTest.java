@@ -7,6 +7,8 @@ How to Run:  java -ea PeekTest
 */
 package project_4.extensions;
 
+import project_4.lab_4.LinkedList;
+
 public class PeekTest {
     public static void main (String[] args){
         // set up

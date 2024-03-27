@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Font;
+import project_4.lab_4.LinkedList;
 
 public class Server {
     /**
