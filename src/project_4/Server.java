@@ -7,8 +7,6 @@ How to Run:  N/A
 */
 package project_4;
 
-import project_4.lab_4.LinkedList;
-
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Toolkit;
