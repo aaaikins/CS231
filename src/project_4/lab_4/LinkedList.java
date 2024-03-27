@@ -7,6 +7,7 @@ How to Run:  N/A
 */
 package project_4.lab_4;
 
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class LinkedList<T> implements Queue<T>, Iterable<T> {
@@ -442,4 +443,50 @@ public class LinkedList<T> implements Queue<T>, Iterable<T> {
     public T peek() {
         return get(0);
     }
+
+    /**
+     * Returns the smallest value in the list.
+     *
+     * @param comparator A Comparator whose `compare` method will be used for comparing values in the linked list in order to
+     *                   find the smallest value.
+     * @return The smallest value in the linked list.
+     */
+    public T findMin(Comparator<T> comparator) {
+        T minValue = head.value;
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+            if (comparator.compare(currentNode.value, minValue) < 0)
+                minValue = currentNode.value;
+
+            currentNode = currentNode.next;
+        }
+        return minValue;
+    }
+
+    /**
+     * Removes and returns the smallest value in the list.
+     *
+     * @param comparator A Comparator whose `compare` method will be used for comparing values in the list in order to
+     *                   find the smallest value.
+     * @return The smallest value in the linked list.
+     */
+    public T removeMin(Comparator<T> comparator) {
+        T minValue = head.value;
+        int minIndex = 0;
+        int currentIndex = 0;
+        Node<T> currentNode = head;
+
+        while (currentNode != null) {
+            if (comparator.compare(currentNode.value, minValue) < 0) {
+                minValue = currentNode.value;
+                minIndex = currentIndex;
+            }
+            currentNode = currentNode.next;
+            currentIndex++;
+        }
+        return remove(minIndex);
+    }
+
+
 }
