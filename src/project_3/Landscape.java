@@ -37,7 +37,7 @@ public class Landscape {
     public Landscape(int w, int h) {
         width = w;
         height = h;
-        landscape = new LinkedList<Agent>();
+        landscape = new LinkedList<>();
     }
 
     /**
