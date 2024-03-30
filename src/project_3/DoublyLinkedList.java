@@ -32,7 +32,7 @@ public class DoublyLinkedList<E> {
          */
         public Node(F v, Node<F> p, Node<F> n) {
             val = v;
-            p = prev;
+            prev = p;
             next = n;
         }
     }
@@ -107,7 +107,7 @@ public class DoublyLinkedList<E> {
      * @param item the item to be added.
      */
     public void addLast(E item) {
-        Node<E> newNode = new Node<E>(item, last, null);
+        Node<E> newNode = new Node<>(item, last, null);
         if (size == 0) {
             last = newNode;
             first = newNode;
