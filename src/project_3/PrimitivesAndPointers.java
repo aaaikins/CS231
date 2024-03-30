@@ -13,7 +13,7 @@ public class PrimitivesAndPointers {
     /**
      * Attempts to increment its `x` parameter by 1.
      *
-     * @param x
+     * @param x Any integer.
      */
     public static void addOne(int x) {
         x = x + 1;
