@@ -48,7 +48,7 @@ public class AgentSimulation {
         while (numberOfIterations > 0 && numberOfMovedAgents > 0) {
             Thread.sleep(10);
             numberOfMovedAgents = landscape.updateAgents();
-            numberOfIterations --;
+            numberOfIterations--;
             display.repaint();
 
             // save screenshot of each iteration
@@ -56,9 +56,5 @@ public class AgentSimulation {
         }
 
         System.out.println("Total Number of Agents: " + numberOfAgents + "\nNumber of Moved Agents: " + numberOfMovedAgents + "\nNumber of Iterations: " + (5000 - numberOfIterations));
-
-
-
-
     }
 }
