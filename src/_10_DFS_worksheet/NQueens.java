@@ -50,21 +50,19 @@ public class NQueens {
      *         Coordinates in curSolution, otherwise false.
      */
     public static boolean isValid(LinkedList<Coordinate> curSolution, Coordinate newCoordinate) {
-        /**
+        /*
          * Iterate over each Coordinate coord in curSolution...
          */
         for (Coordinate coord : curSolution) {
-            /**
+            /*
              * If coord and newCoordinate are in the same row, column, or diagonal, return
              * false.
              */
-
-            // TODO
             if (newCoordinate.row == coord.row || newCoordinate.col == coord.col || Math.abs(newCoordinate.row - coord.row) == Math.abs(newCoordinate.col - coord.col))
                 return false;
         }
 
-        /**
+        /*
          * If no problems found, return true.
          */
         return true;
@@ -90,13 +88,20 @@ public class NQueens {
         // first, iterate over all the remaining columns in the same row of
         // lastUsedCoordinate
         for (int col = lastUsedCoordinate.col + 1; col < size; col++) {
-            // TODO
+            Coordinate newCoordinate = new Coordinate(lastUsedCoordinate.row, col);
+            if (isValid(curSolution, newCoordinate))
+                return newCoordinate;
         }
 
         // if nothing in the same row works, we'll need to iterate over all the
         // remaining rows and columns and try each one.
-
-        // TODO
+        for (int row = lastUsedCoordinate.row + 1; row < size; row ++) {
+            for(int column = 0; column < size; column ++){
+                Coordinate newCoordinate = new Coordinate(row, column);
+                if (isValid(curSolution, newCoordinate))
+                    return newCoordinate;
+            }
+        }
 
         // if nothing has worked, return null.
         return null;
