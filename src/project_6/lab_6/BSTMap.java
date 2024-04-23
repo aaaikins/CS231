@@ -210,10 +210,37 @@ public class BSTMap<K, V> implements MapSet<K, V> {
      * Returns true if the map contains a mapping for the specified key to a value.
      *
      * @param key The key whose presence in this map is to be tested
-     * @return A boolean indicating whether or not `key` exists in the map.
+     * @return A boolean indicating whether`key` exists in the map.
      */
     public boolean containsKey(K key){
-        return true;
+        if (root != null)
+            return containsKey(key, root);
+        else
+            return false;
+    }
+
+    /**
+     * Recursive helper method for the containsKey() method.
+     *
+     * @param key The key being searched for in the map.
+     * @param cur The current node of the recursion.
+     * @return A boolean indicating whether `key` is present in the map.
+     */
+    private boolean containsKey(K key, Node<K, V> cur){
+        if (comparator.compare(key, cur.getKey()) < 0){
+            if (cur.leftChild != null)
+                return containsKey(key, cur.leftChild);
+            else
+                return false;
+        }
+        else if (comparator.compare(key, cur.getKey()) > 0 ){
+            if (cur.rightChild != null)
+                return containsKey(key, cur.rightChild);
+            else
+                return false;
+        }
+        else
+            return true;
     }
 
     /**
@@ -229,6 +256,7 @@ public class BSTMap<K, V> implements MapSet<K, V> {
     public V remove(K key){
         return null;
     };
+
 
     /**
      * Returns an ArrayList of all the keys in the map.
