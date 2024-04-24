@@ -2,7 +2,7 @@
 File Name:   Heap.java
 Author:      Francis O'Hara
 Date:        4/23/24
-Description: Heap that implements a priority queue interface.
+Description: Heap class for implementing a priority queue.
 How to Run:  N/A
 */
 package project_7.lab_7;
