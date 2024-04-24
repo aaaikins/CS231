@@ -1,3 +1,10 @@
+/*
+File Name:   PriorityQueue.java
+Author:      Francis O'Hara
+Date:        4/23/24
+Description: Interface specifying how to implement a priority queue.
+How to Run:  N/A
+*/
 package project_7.lab_7;
 
 public interface PriorityQueue<T> {
