@@ -1,3 +1,10 @@
+/*
+File Name:   HeapTest.java
+Author:      Francis O'Hara
+Date:        4/23/24
+Description: Contains tests for the Heap class.
+How to Run:  java HeapTest
+*/
 package project_7.lab_7;
 
 import java.util.Arrays;
