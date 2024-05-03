@@ -416,35 +416,6 @@ public class LinkedList<T> implements Stack<T>, Iterable<T> {
             return false;
     }
 
-//    /**
-//     * Inserts the specified element into the queue.
-//     *
-//     * @param e the element to add
-//     */
-//    public void offer(T e) {
-//        addLast(e);
-//    }
-//
-//    /**
-//     * Retrieves and removes the head of this queue,
-//     * or returns `null` if this queue is empty.
-//     *
-//     * @return the head of this queue, or `null` if this queue is empty
-//     */
-//    public T poll() {
-//        return remove();
-//    }
-
-//    /**
-//     * Retrieves, but does not remove, the head of this queue,
-//     * or returns `null` if this queue is empty.
-//     *
-//     * @return the head of this queue, or `null` if this queue is empty
-//     */
-//    public T peek() {
-//        return get(0);
-//    }
-
     /**
      * Returns the smallest value in the list.
      *
