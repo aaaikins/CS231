@@ -26,6 +26,7 @@ public class NQueens {
 
         /**
          * Creates a new Coordinate object.
+         *
          * @param r The row of the new Coordinate.
          * @param c The column of the new Coordinate.
          */
@@ -34,6 +35,11 @@ public class NQueens {
             col = c;
         }
 
+        /**
+         * Returns a textual representation of the Coordinate object.
+         *
+         * @return A String representing the Coordinate object.
+         */
         public String toString() {
             return "(" + row + ", " + col + ")";
         }
@@ -66,14 +72,14 @@ public class NQueens {
      * Returns true if a queen at the given Coordinate newCoordinate will not
      * conflict with any of the coordinates in curSolution.
      *
-     * @param curSolution  a list of previously placed queens.
+     * @param curSolution   a list of previously placed queens.
      * @param newCoordinate a Coordinate for a new queen to place.
      * @return true if the Coordinate newCoordinate doesn't conflict with any
-     *         Coordinates in curSolution, otherwise false.
+     * Coordinates in curSolution, otherwise false.
      */
     public static boolean isValid(LinkedList<Coordinate> curSolution, Coordinate newCoordinate) {
         /*
-         * Iterate over each Coordinate coord in curSolution...
+         * Iterate over each Coordinate `coord` in curSolution...
          */
         for (Coordinate coord : curSolution) {
             /*
@@ -103,10 +109,10 @@ public class NQueens {
      *                           from which no valid solution could be found.
      * @param size               the size of the board for the given nqueens game.
      * @return a Coordinate that's valid with curSolution if one exists, otherwise
-     *         null.
+     * null.
      */
     public static Coordinate getNewCoordinate(LinkedList<Coordinate> curSolution, Coordinate lastUsedCoordinate,
-            int size) {
+                                              int size) {
         // first, iterate over all the remaining columns in the same row of
         // lastUsedCoordinate
         for (int col = lastUsedCoordinate.col + 1; col < size; col++) {
@@ -117,8 +123,8 @@ public class NQueens {
 
         // if nothing in the same row works, we'll need to iterate over all the
         // remaining rows and columns and try each one.
-        for (int row = lastUsedCoordinate.row + 1; row < size; row ++) {
-            for(int column = 0; column < size; column ++){
+        for (int row = lastUsedCoordinate.row + 1; row < size; row++) {
+            for (int column = 0; column < size; column++) {
                 Coordinate newCoordinate = new Coordinate(row, column);
                 if (isValid(curSolution, newCoordinate))
                     return newCoordinate;
@@ -135,7 +141,7 @@ public class NQueens {
      *
      * @param size the size of the board to be used.
      * @return a list of Coordinates corresponding to a solution of the
-     *         given size if one exists, otherwise returns null.
+     * given size if one exists, otherwise returns null.
      */
     public static LinkedList<Coordinate> dfs_solve(int size) {
         // Create a blank starting solution using Java's LinkedList.
@@ -163,7 +169,7 @@ public class NQueens {
                 // If my solution's size is 0, then I can't backtrack! It basically
                 // means I've tried all possibilities and nothing worked, so it's time
                 // to call it quits and return null.
-                if (curSolution.size() == 0)
+                if (curSolution.isEmpty())
                     return null;
 
                 // Otherwise, let's set lastCoordinate to be the result of 'popping' off
@@ -198,7 +204,7 @@ public class NQueens {
      *
      * @param size the size of the board to be used.
      * @return a list of Coordinates corresponding to a solution of the
-     *         given size if one exists, otherwise returns null.
+     * given size if one exists, otherwise returns null.
      */
     public static LinkedList<Coordinate> bfs_solve(int size) {
         // In BFS, instead of a Stack we'll maintain a Queue of partially-completed
@@ -210,7 +216,7 @@ public class NQueens {
 
         // Now, we need to keep iterating as long as there are still solutions for
         // us to work on. Equivalently, as long as solutions.size() > 0
-        while (solutions.size() > 0) {
+        while (!solutions.isEmpty()) {
             // Each round, we'll look at whatever the next solution to consider is
             // by calling poll on solutions.
             LinkedList<Coordinate> solution = solutions.poll();
@@ -226,7 +232,8 @@ public class NQueens {
             // 2. Add the valid next coordinate to this copy
             // 3. Add this new solution to the back of solutions using the offer method.
 
-            Coordinate lastCoordinate = null;
+            Coordinate lastCoordinate;
+
             if (solution.isEmpty())
                 lastCoordinate = new Coordinate(0, -1);
             else
@@ -236,14 +243,14 @@ public class NQueens {
                 Coordinate nextCoordinate = getNewCoordinate(solution, lastCoordinate, size);
                 if (nextCoordinate != null) {
                     LinkedList<Coordinate> copySolution = new LinkedList<>();
-                    for(Coordinate coordinate: solution) {
+                    for (Coordinate coordinate : solution) {
                         copySolution.addLast(new Coordinate(coordinate.row, coordinate.col));
                     }
                     copySolution.push(nextCoordinate);
+
                     solutions.offer(copySolution);
                     lastCoordinate = nextCoordinate;
-                }
-                else
+                } else
                     break;
             }
         }
@@ -256,9 +263,14 @@ public class NQueens {
         // works!
     }
 
+    /**
+     * The main entry point into the program.
+     *
+     * @param args An array of Strings denoting command-line arguments passed to the program.
+     */
     public static void main(String[] args) {
         for (int size = 1; size <= 20; size++) {
-         // LinkedList<Coordinate> solution = dfs_solve(size);
+            // LinkedList<Coordinate> solution = dfs_solve(size);
             LinkedList<Coordinate> solution = bfs_solve(size);
 
             if (solution == null) {
