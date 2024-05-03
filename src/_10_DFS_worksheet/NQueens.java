@@ -1,12 +1,34 @@
+/*
+File Name: LinkedList.java
+Author: Francis O'Hara
+Date: 5/3/2024
+Description: Implementation of the NQueens puzzle solver using Breadth-First-Search and Depth-First-Search approaches.
+How to Run: java NQueens
+*/
 package _10_DFS_worksheet;
 
 import java.util.LinkedList;
 
 public class NQueens {
-
+    /**
+     * Class for representing possible coordinates at which queens may be placed on the nxn NQueens board (chessboard).
+     */
     private static class Coordinate {
-        int row, col;
+        /**
+         * The row value of the coordinate.
+         */
+        int row;
 
+        /**
+         * The column value of the coordinate.
+         */
+        int col;
+
+        /**
+         * Creates a new Coordinate object.
+         * @param r The row of the new Coordinate.
+         * @param c The column of the new Coordinate.
+         */
         public Coordinate(int r, int c) {
             row = r;
             col = c;
@@ -20,7 +42,7 @@ public class NQueens {
     /**
      * A method for printing a solution.
      *
-     * @param curSolution s list of Coordinates corresponding to Queen locations.
+     * @param curSolution list of Coordinates corresponding to Queen locations.
      * @param size        the size of the board on which the solution is being
      *                    created.
      */
@@ -44,7 +66,7 @@ public class NQueens {
      * Returns true if a queen at the given Coordinate newCoordinate will not
      * conflict with any of the coordinates in curSolution.
      *
-     * @param curSolution   a list of previously placed queens.
+     * @param curSolution  a list of previously placed queens.
      * @param newCoordinate a Coordinate for a new queen to place.
      * @return true if the Coordinate newCoordinate doesn't conflict with any
      *         Coordinates in curSolution, otherwise false.
@@ -131,7 +153,7 @@ public class NQueens {
             // Get the result of calling getNewCoordinate on the current solution
             // with whatever lastCoordinate currently is; let's call it "next"
 
-            // TODO
+            Coordinate next = getNewCoordinate(curSolution, lastCoordinate, size);
 
             // It *might* be the case that there is no valid next coordinate. In
             // this case, we'll need to start backtracking and continue backtracking
@@ -147,24 +169,22 @@ public class NQueens {
                 // Otherwise, let's set lastCoordinate to be the result of 'popping' off
                 // whatever the last Coordinate is in curSolution
 
-                // TODO
+                lastCoordinate = curSolution.pop();
 
                 // Update next accordingly, by recalling getNewCoordinate with our
                 // updated solution and lastCoordinate
 
-                // TODO
+                next = getNewCoordinate(curSolution, lastCoordinate, size);
             }
 
             // If I've reached here, then next is now a non-null Coordinate that
             // represents a new Coordinate I can add to curSolution, so let's
             // push it onto the solution
-
-            // TODO
+            curSolution.push(next);
 
             // Since we've added a new Coordinate, lastCoordinate should now be
             // whatever next is.
-
-            // TODO
+            lastCoordinate = next;
         }
 
         // If we've reached here, then we've found a solution of the desired size!
@@ -202,11 +222,30 @@ public class NQueens {
 
             // Otherwise, we'll need to iterate over all the next possible Coordinates
             // we could add to solution - for any that are valid with it, we'll need to
-            // 1. Make a copy of soluion (why do I need to do this? think about it...)
+            // 1. Make a copy of solution (why do I need to do this? think about it...)
             // 2. Add the valid next coordinate to this copy
             // 3. Add this new solution to the back of solutions using the offer method.
 
-            // TODO
+            Coordinate lastCoordinate = null;
+            if (solution.isEmpty())
+                lastCoordinate = new Coordinate(0, -1);
+            else
+                lastCoordinate = solution.peek();
+
+            while (true) {
+                Coordinate nextCoordinate = getNewCoordinate(solution, lastCoordinate, size);
+                if (nextCoordinate != null) {
+                    LinkedList<Coordinate> copySolution = new LinkedList<>();
+                    for(Coordinate coordinate: solution) {
+                        copySolution.addLast(new Coordinate(coordinate.row, coordinate.col));
+                    }
+                    copySolution.push(nextCoordinate);
+                    solutions.offer(copySolution);
+                    lastCoordinate = nextCoordinate;
+                }
+                else
+                    break;
+            }
         }
 
         // If we ever reach here, then there were no solutions possible! So
@@ -218,8 +257,9 @@ public class NQueens {
     }
 
     public static void main(String[] args) {
-        for (int size = 0; size < 20; size++) {
-            LinkedList<Coordinate> solution = dfs_solve(size);
+        for (int size = 1; size <= 20; size++) {
+         // LinkedList<Coordinate> solution = dfs_solve(size);
+            LinkedList<Coordinate> solution = bfs_solve(size);
 
             if (solution == null) {
                 System.out.println("No solution found for size: " + size);
