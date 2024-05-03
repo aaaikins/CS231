@@ -1,5 +1,5 @@
 /*
-File Name:   Cell.java
+File Name:   Stack.java
 Author:      Francis O'Hara
 Date:        4/2/24
 Description: An interface for implementing a Stack data structure.
