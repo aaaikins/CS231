@@ -8,6 +8,9 @@ How to Run:  java -ea BoardTests
 package project_5;
 
 public class BoardTests {
+    /**
+     * Executes tests for the Board class.
+     */
     public static void boardTests() {
         // case 1: testing Board()
         {
@@ -200,7 +203,11 @@ public class BoardTests {
     }
 
 
-
+    /**
+     * The main entry point into the program.
+     *
+     * @param args An array of Strings denoting command-line arguments passed to the program.
+     */
     public static void main(String[] args) {
         boardTests();
     }
