@@ -81,7 +81,7 @@ public class Board {
             while (line != null) {
                 // print line
                 System.out.println(line);
-                // assign to an array of Strings the result of splitting the line up by spaces (line.split("[ ]+"))
+                // assign to an array of Strings the result of splitting the line-up by spaces (line.split("[ ]+"))
                 String[] arr = line.split("[ ]+");
                 // let's see what this array holds:
                 System.out.println("the first item in arr: " + arr[0] + ", the second item in arr: " + arr[1]);
@@ -139,7 +139,7 @@ public class Board {
      *
      * @param args An array of strings denoting command-line arguments passed to the program.
      */
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         if (args.length < 1) {
             System.out.println("Usage: java Board filename\n\tCreates a new Sudoku board based on values read from a text file whose path is specified by filename.");
             throw new Exception("Error: Filename must be specified!");
