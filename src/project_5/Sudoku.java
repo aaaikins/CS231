@@ -78,6 +78,12 @@ public class Sudoku {
         return null;
     }
 
+    /**
+     * The main entry point into the program.
+     *
+     * @param args An array of Strings denoting the command-line arguments passed to the program.
+     */
+    public static void main(String[] args){
 
-
+    }
 }
