@@ -128,7 +128,7 @@ public class BoardTests {
             board.set(8, 8, 4);
             assert board.value(8, 8) == 4 : "Error in Board::set(int, int, int)";
             board.set(8, 8, 7);
-            assert board.value(8, 8) == 7: "Error in Board::set(int, int, int)";
+            assert board.value(8, 8) == 7 : "Error in Board::set(int, int, int)";
         }
 
         // case 9: testing set(int, int, int, boolean)
@@ -148,8 +148,58 @@ public class BoardTests {
             assert board.value(0, 0) == 5 && !board.isLocked(0, 0) : "Error in Board::set(int, int, int, boolean)";
         }
 
+        // case 10: testing Board(int)
+        {
+            // setup
+            Board board = new Board(10);
+
+            // verify
+            System.out.println(board);
+
+            // test
+            assert board != null: "Error in Board::Board(int)";
+            assert board.numLocked() == 10 : "Error in Board::Board(int)";
+        }
+
+        // case 11: testing validValue(int, int, int)
+        {
+            // setup
+            Board board = new Board();
+
+            // verify
+            System.out.println(board);
+
+            // test
+            board.set(2, 2, 6);
+            assert !board.validValue(0, 0, 6) : "Error in Board::validValue(int, int, int)";
+            assert !board.validValue(2, 3, 6) : "Error in Board::validValue(int, int, int)";
+            assert !board.validValue(7, 2, 6) : "Error in Board::validValue(int, int, int)";
+            assert board.validValue(5, 5, 6) : "Error in Board::validValue(int, int, int)";
+        }
+
+        // case 12: testing validSolution()
+        {
+            // setup
+            Board board1 = new Board("./src/project_5/lab_5/data/solution.txt");
+            Board board2 = new Board(12);
+            Board board3 = new Board();
+
+            // verify
+            System.out.print("Board 1:\n" + board1);
+            System.out.print("Board 2:\n" + board2);
+            System.out.print("Board 3:\n" + board3);
+
+
+            // test
+            assert board1.validSolution() : "Error in Board::validSolution()";
+            assert !board2.validSolution() : "Error in Board::validSolution()";
+            assert !board3.validSolution() : "Error in Board::validSolution()";
+        }
+
         System.out.println("*** Done testing Board class! ***");
     }
+
+
 
     public static void main(String[] args) {
         boardTests();
