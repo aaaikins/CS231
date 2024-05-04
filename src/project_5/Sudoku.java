@@ -72,6 +72,7 @@ public class Sudoku {
                         currentCell.setValue(nextValue);
                         return currentCell;
                     }
+                    return null;
                 }
             }
         }
