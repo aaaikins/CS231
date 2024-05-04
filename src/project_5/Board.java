@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 public class Board {
     /**
@@ -41,6 +42,25 @@ public class Board {
     public Board(String filename) {
         this();
         read(filename);
+    }
+
+    /**
+     * Creates a new Sudoku board with the given number of locked cells.
+     * The values of the cells will be randomly assigned but will be valid.
+     *
+     * @param numLocked The number of locked cells that should be on the newly created board.
+     */
+    public Board(int numLocked) {
+        this();
+        Random randomGenerator = new Random();
+
+        while (numLocked() < numLocked) {
+            int row = randomGenerator.nextInt(0, 9);
+            int column = randomGenerator.nextInt(0, 9);
+            int value = randomGenerator.nextInt(1, 10);
+            if (validValue(row, column, value))
+                board[row][column] = new Cell(row, column, value, true);
+        }
     }
 
     /**
@@ -206,6 +226,58 @@ public class Board {
         return result;
     }
 
+    /**
+     * Checks if the given value is a valid value at the given row and column of the sudoku board.
+     *
+     * @param row    The row of the value.
+     * @param column The column of the value.
+     * @param value  The value whose validity is being tested.
+     * @return `true` if the value is valid. Otherwise, return `false`.
+     */
+    public boolean validValue(int row, int column, int value) {
+        if (value < 1 || value > 9)
+            return false;
+
+        // check rows
+        for (int c = 0; c < getCols(); c++) {
+            if (value(row, c) == value && c != column)
+                return false;
+        }
+
+        // check columns
+        for (int r = 0; r < getRows(); r++) {
+            if (value(r, column) == value && r != row)
+                return false;
+        }
+
+        // checking local 3x3 grid
+        for (int r = (row / 3) * 3; r < ((row / 3) * 3) + 3; r++) {
+            for (int c = (column / 3) * 3; c < ((column / 3) * 3) + 3; c++) {
+                if (value(r, c) == value && (r != row || c != column))
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Returns a boolean indicating whether the board is solved.
+     *
+     * @return `true` if the board is solved. Otherwise, returns `false`.
+     */
+    public boolean validSolution() {
+        for (int row = 0; row < getRows(); row++) {
+            for (int column = 0; column < getCols(); column++) {
+                if (value(row, column) == 0)
+                    return false;
+                if (!validValue(row, column, value(row, column)))
+                    return false;
+            }
+        }
+
+        return true;
+    }
 
     /**
      * The main entry point into the program.
