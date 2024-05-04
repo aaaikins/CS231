@@ -7,8 +7,6 @@ How to Run:  java Board
 */
 package project_5;
 
-import project_5.lab_5.Cell;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
