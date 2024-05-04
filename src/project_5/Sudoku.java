@@ -79,11 +79,50 @@ public class Sudoku {
     }
 
     /**
+     * Solves the current sudoku board using a backtracking algorithm, and returns a boolean indicating whether the board
+     * solvable.
+     *
+     * @return `true` if the board is solvable. `false` if the board is not solvable.
+     */
+    public boolean solve() {
+        LinkedList<Cell> solution = new LinkedList<>();
+        int numUnspecifiedCells = 81 - board.numLocked();
+        while (solution.size() < numUnspecifiedCells) {
+            Cell next = findNextCell();
+            while (next == null && !solution.isEmpty()) {
+                Cell current = solution.pop();
+                current.setValue(findNextValue(current));
+                if (current.getValue() != 0)
+                    next = current;
+            }
+
+            if (next == null)
+                return false;
+            else
+                solution.push(next);
+        }
+        return true;
+    }
+
+    /**
      * The main entry point into the program.
+     * Executes tests for the `solve()` method above.
      *
      * @param args An array of Strings denoting the command-line arguments passed to the program.
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        Sudoku sudoku1 = new Sudoku(0);
+        System.out.println("Board 1 Before:\n" + sudoku1.getBoard());
+        if (sudoku1.solve())
+            System.out.println("Board 1 After:\n" + sudoku1.getBoard());
+         else
+            System.out.println("Board 1 cannot be solved!");
 
+        Sudoku sudoku2 = new Sudoku(10);
+        System.out.println("Board 2 Before:\n" + sudoku2.getBoard());
+        if (sudoku2.solve())
+            System.out.println("Board 2 After:\n" + sudoku2.getBoard());
+        else
+            System.out.println("Board 2 cannot be solved!");
     }
 }
