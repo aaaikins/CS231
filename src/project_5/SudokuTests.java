@@ -39,6 +39,26 @@ public class SudokuTests {
             assert sudoku.findNextValue(sudoku.getBoard().get(1,2)) == 5: "Error in Sudoku::findNextValue()";
         }
 
+        // case 3: testing findNextCell()
+        {
+            // setup
+            Sudoku sudoku = new Sudoku(7);
+            sudoku.setBoard(new Board("./src/project_5/lab_5/data/board2.txt"));
+
+            // verify
+            System.out.println(sudoku.getBoard());
+
+            // test
+            Cell nextCell = sudoku.findNextCell();
+            assert nextCell.getRow() == 0 : "Error in Sudoku::findNextCell()";
+            assert nextCell.getColumn() == 0 : "Error in Sudoku::findNextCell()";
+            assert nextCell.getValue() == 1 : "Error in Sudoku::findNextCell()";
+            nextCell = sudoku.findNextCell();
+            assert nextCell.getRow() == 0 : "Error in Sudoku::findNextCell()";
+            assert nextCell.getColumn() == 2 : "Error in Sudoku::findNextCell()";
+            assert nextCell.getValue() == 3 : "Error in Sudoku::findNextCell()";
+        }
+
         System.out.println("*** Done testing Sudoku class! ***");
     }
 
