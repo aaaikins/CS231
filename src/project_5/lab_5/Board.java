@@ -3,7 +3,7 @@ File Name:   Board.java
 Author:      Francis O'Hara
 Date:        4/2/24
 Description: Class for representing the board in a game of Sudoku.
-How to Run:  N/A
+How to Run:  java Board
 */
 package project_5.lab_5;
 
