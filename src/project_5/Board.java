@@ -41,6 +41,7 @@ public class Board {
      * @param filename A String denoting the name of the .txt file containing the cell values for creating the board.
      */
     public Board(String filename) {
+        this();
         read(filename);
     }
 
