@@ -7,6 +7,9 @@ How to Run:  N/A
 */
 package project_5;
 
+import java.awt.Graphics;
+import java.awt.*;
+
 public class Cell {
     /**
      * The row of the Cell in the Sudoku grid.
@@ -118,5 +121,11 @@ public class Cell {
      */
     public String toString(){
         return "" + value;
+    }
+
+    public void draw(Graphics g, int x, int y, int scale){
+        char toDraw = (char) ((int) '0' + getValue());
+        g.setColor(isLocked()? Color.BLUE : Color.RED);
+        g.drawChars(new char[] {toDraw}, 0, 1, x, y);
     }
 }
