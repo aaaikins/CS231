@@ -25,10 +25,16 @@ public class Board {
     public static final int size = 9;
 
     /**
+     * A boolean indicating whether the Sudoku board has been solved.
+     */
+    private Boolean finished;
+
+    /**
      * Creates a new Sudoku board with all cell values initialized to 0.
      */
     public Board() {
         board = new Cell[size][size];
+        finished = false;
         for (int row = 0; row < 9; row++)
             for (int column = 0; column < 9; column++)
                 board[row][column] = new Cell(row, column, 0);
@@ -152,6 +158,15 @@ public class Board {
     public void set(int row, int col, int value, boolean locked) {
         set(row, col, value);
         board[row][col].setLocked(locked);
+    }
+
+    /**
+     * Sets the value of the `finished` field of the board.
+     *
+     * @param finished A boolean to be used as the new value of the `finished` field.
+     */
+    public void setFinished(boolean finished){
+        this.finished = finished;
     }
 
     /**
