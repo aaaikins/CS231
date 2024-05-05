@@ -102,6 +102,7 @@ public class Sudoku {
             else
                 solution.push(next);
         }
+        board.setFinished(true);
         return true;
     }
 
