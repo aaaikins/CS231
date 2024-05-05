@@ -7,8 +7,6 @@ How to Run:  java Sudoku
 */
 package project_5;
 
-import java.util.Random;
-
 public class Sudoku {
     /**
      * The board in the sudoku game.
