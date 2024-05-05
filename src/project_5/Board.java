@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+import java.awt.*;
 
 public class Board {
     /**
@@ -292,6 +293,28 @@ public class Board {
         }
 
         return true;
+    }
+
+    /**
+     * Visualises the state of the sudoku board.
+     *
+     * @param g The Graphics object to be used to visualize the Sudoku board.
+     * @param scale The scale of the visualization.
+     */
+    public void draw(Graphics g, int scale){
+        for(int i = 0; i<getRows(); i++){
+            for(int j = 0; j<getCols(); j++){
+                get(i, j).draw(g, j*scale+5, i*scale+10, scale);
+            }
+        } if(finished){
+            if(validSolution()){
+                g.setColor(new Color(0, 127, 0));
+                g.drawChars("Hurray!".toCharArray(), 0, "Hurray!".length(), scale*3+5, scale*10+10);
+            } else {
+                g.setColor(new Color(127, 0, 0));
+                g.drawChars("No solution!".toCharArray(), 0, "No Solution!".length(), scale*3+5, scale*10+10);
+            }
+        }
     }
 
     /**
